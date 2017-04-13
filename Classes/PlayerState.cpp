@@ -115,8 +115,8 @@ void Jump::handleInput(Player* player, Input input)
 
 void Jump::handleUpdate(Player* player, float dt)
 {
-	static float jumpStart = player->getPositionY();
-	static float jumpMax = jumpStart + (player->getContentSize().height * 1.8);
+	static const float jumpStart = player->getPositionY();
+	static const float jumpMax = jumpStart + (player->getContentSize().height * 1.8);
 	float currentY = player->getPositionY();
 	float newY = currentY + 4;
 
@@ -133,8 +133,8 @@ void Fall::handleInput(Player* player, Input input)
 
 void Fall::handleUpdate(Player* player, float dt)
 {
-	static float jumpMax = player->getPositionY();
-	static float jumpStart = jumpMax - (player->getContentSize().height * 1.8);
+	static const float jumpMax = player->getPositionY();
+	static const float jumpStart = jumpMax - (player->getContentSize().height * 1.8);
 	float currentY = player->getPositionY();
 	float newY = currentY - 4;
 
