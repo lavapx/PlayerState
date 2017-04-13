@@ -45,3 +45,40 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.obj
+*.log
+cocos2d/cocos/2d/Debug.win32/libcocos2d.tlog/CL.command.1.tlog
+*.tlog
+cocos2d/cocos/2d/Debug.win32/libcocos2d.vcxprojResolveAssemblyReference.cache
+*.idb
+cocos2d/cocos/editor-support/spine/proj.win32/Debug.win32/libSpine.pdb
+*.pdb
+proj.win32/.vs/PlayerState/v14/.suo
+proj.win32/Debug.win32/freetype.lib
+*.dll
+proj.win32/Debug.win32/glew32.lib
+*.lib
+*.res
+proj.win32/Debug.win32/CloseNormal.png
+proj.win32/Debug.win32/PlayerState.exp
+*.exe
+proj.win32/Debug.win32/PlayerState.ilk
+*.cache
+proj.win32/Debug.win32/res/.gitkeep
+proj.win32/PlayerState.VC.db
+*.opendb
+proj.win32/Debug.win32/TestCube.png
+Classes/ref/CommonEnums.h
+Classes/ref/GameLayerScene.cpp
+Classes/ref/Player.cpp
+Classes/ref/GameLayerScene.h
+Classes/ref/Player.h
+Classes/ref/PlayerStates.cpp
+Classes/ref/PlayerStates.h
+proj.win32/Debug.win32/CloseSelected.png
+proj.win32/Debug.win32/fonts/arial.ttf
+*.vcxproj
+proj.win32/Debug.win32/libcocos2d.exp
+proj.win32/Debug.win32/HelloWorld.png
+proj.win32/Debug.win32/fonts/Marker Felt.ttf
+proj.win32/PlayerState.vcxproj

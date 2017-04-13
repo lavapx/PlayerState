@@ -52,30 +52,73 @@ bool HelloWorld::init()
     /////////////////////////////
     // 3. add your codes below...
 
-    // add a label shows "Hello World"
-    // create and initialize a label
-    
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
-    
-    // position the label on the center of the screen
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
+	Director::getInstance()->setDisplayStats(false);
+  
+    _player = Player::create("TestCube.png");
 
-    // add the label as a child to this layer
-    this->addChild(label, 1);
+	_player->setAnchorPoint(Vec2::ZERO);
+    _player->setPosition(Vec2(visibleSize.width/2 + origin.x, _player->getContentSize().height * 2));
 
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
+    this->addChild(_player, 0);
 
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+	this->initKeyboard();
 
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
+	this->scheduleUpdate();
     
     return true;
 }
 
+
+void HelloWorld::initKeyboard()
+{
+	auto keyListener = EventListenerKeyboard::create();
+	keyListener->onKeyPressed = CC_CALLBACK_2(HelloWorld::onKeyPressed, this);
+	keyListener->onKeyReleased = CC_CALLBACK_2(HelloWorld::onKeyReleased, this);
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(keyListener, this);
+}
+
+void HelloWorld::onKeyPressed(cocos2d::EventKeyboard::KeyCode key, cocos2d::Event* event)
+{
+	
+	switch (key)
+	{
+	case cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+		_player->input(Input::LEFT_PRESS);
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+		_player->input(Input::RIGHT_PRESS);
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW:
+		_player->input(Input::JUMP_PRESS);
+		break;
+
+	default:
+		break;
+	}
+
+}
+
+void HelloWorld::onKeyReleased(cocos2d::EventKeyboard::KeyCode key, cocos2d::Event* event) {
+
+	
+	switch (key)
+	{
+	case cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW:
+		_player->input(Input::LEFT_RELEASE);
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
+		_player->input(Input::RIGHT_RELEASE);
+		break;
+	case cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW:
+		_player->input(Input::JUMP_RELEASE);
+		break;
+	default:
+		
+		break;
+	}
+
+}
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
@@ -92,4 +135,10 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     //_eventDispatcher->dispatchEvent(&customEndEvent);
     
     
+}
+
+void HelloWorld::update(float dt)
+{
+	_player->update(dt);
+
 }
