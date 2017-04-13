@@ -62,7 +62,7 @@ void WalkLeft::handleInput(Player* player, Input input)
 
 void WalkLeft::handleUpdate(Player* player, float dt)
 {
-	static float maxLeft = 0;
+	static const float maxLeft = 0;
 	float currentX = player->getPositionX();
 	float newX = currentX - 3;
 
@@ -98,7 +98,7 @@ void WalkRight::handleInput(Player* player, Input input)
 
 void WalkRight::handleUpdate(Player* player, float dt)
 {
-	static float maxRight = Director::getInstance()->getVisibleSize().width - player->getContentSize().width;
+	static const float maxRight = Director::getInstance()->getVisibleSize().width - player->getContentSize().width;
 	float currentX = player->getPositionX();
 	float newX = currentX + 3;
 
