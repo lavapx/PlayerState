@@ -8,5 +8,4 @@ An example of a Player class and state machine for handling input and simple mot
 ## License
 
 Cocos2d-x is licensed under the MIT License.
-
 All original code is also licensed under the MIT License.
