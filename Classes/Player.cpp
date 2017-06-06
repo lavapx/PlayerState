@@ -22,12 +22,12 @@ void Player::setState(PlayerState* state)
 	CCLOG("New State %s", getStateName());
 }
 
-PlayerState* Player::getState()
+const PlayerState* Player::getState() const
 {
 	return _state;
 }
 
-const char* Player::getStateName()
+const char* Player::getStateName() const
 {
 	return typeid(*_state).name();
 }

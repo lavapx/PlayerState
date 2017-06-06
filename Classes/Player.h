@@ -22,8 +22,8 @@ public:
 
 	static Player* create(const std::string& filename);
 
-	PlayerState* getState();
-	const char* getStateName();
+	const PlayerState* getState() const;
+	const char* getStateName() const;
 
 	void update(float dt) override;
 	void input(Input input);
